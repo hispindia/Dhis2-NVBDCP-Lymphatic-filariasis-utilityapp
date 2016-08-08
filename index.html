@@ -1,0 +1,204 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<!-- Latest compiled and minified CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  <!--Bootstrap Select Library-->
+	<!-- Latest compiled and minified CSS -->
+
+
+<!-- Latest compiled and minified JavaScript -->
+
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+
+  
+  <!--W3schools-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+
+<link rel="stylesheet" type="text/css" href="styles.css">
+<style type="text/css">
+    .error
+    {
+        color: white;
+        background-color: rgb(247, 23, 23);
+        margin-left: 12px;
+        border-radius: 3px;
+    }
+    .dsNone
+    {
+        display:none;
+    }
+    .success
+    {
+        color: white;
+        background-color: green;
+        margin-left: 12px;
+        border-radius: 3px;
+    }
+    .algContent
+    {
+        width:900px; margin:0 auto;
+    }
+    .mySlides {display:none;}
+
+    </style>
+</head>
+<body>
+
+  <div>
+  <img src="./img/logo.jpg" height="200px"  width="200px" align="left">
+  <img src="./img/goi.jpg" height="150px"  width="150px" align="right">
+
+
+
+</div>
+
+  <!-- Modal -->
+
+
+	<div class="container">
+  <h1 align="center"><strong>Welcome</strong> to the</h1>
+  <p><h3 id="h3" align="center">National Vector Borne Disease Control Programme(NVDCP)</h3></p>
+  <div class="row">
+    <div class="col-sm-12" style="background-color:white;" align="center">Directorate of National Vector Borne Disease Control Programme (NVBDCP) is the central nodal agency for the prevention and control of vector borne diseases i.e. Malaria, Dengue, Lymphatic Filariasis, Kala-azar, Japanese Encephalitis and Chikungunya in India. It is one of the Technical Departments of Directorate General of Health Services, Government of India. </div>
+  </div>
+  
+  <div>
+  <p id="p1" align="center">Type the Mobile No: Below to find corresponding org Unit</p>
+  </div>
+  
+
+</div>
+<form id="form1" runat="server">
+
+    <br>
+    <br >
+    <br >
+    <div class="algContent">
+        <div style="float:left;">
+            <span>Enter the Phone No:</span> <span>
+                <input id="txtPhoneNo" type="text" onkeypress="return isNumber(event)" />
+            </span>
+
+        </div>
+        <div style="float:right;">
+        <!--<select id="drop3"  >-->
+            <!--<option value="" disabled selected hidden>Assigned Org Units</option>-->
+        <!--</select>-->
+
+            </div>
+        <div style="float:left;">
+        <span style="float:left;" id="errorMsg" class="dsNone error"></span><span style="float:left;" id="successMsg" class="dsNone success">
+        </span>
+        </div>
+        <br ><br >
+        <input type="button"  style="align:center;" class="btn btn-primary" value="Find organisation Unit" onclick="ValidateNo();">
+    </div>
+    <div id="json"></div>
+
+    </form>
+		
+<!-- Footer -->
+
+<div id="footer">
+    <!--<div class="w3-content w3-section" >-->
+        <!--<img class="mySlides" src="img/image1.png" height="150px"  width="1100px">-->
+        <!--<img class="mySlides" src="img/image2.png" height="150px"  width="1100px">-->
+        <!--<img class="mySlides" src="img/image3.jpg" height="150px"  width="1100px">-->
+        <!--<img class="mySlides" src="img/image4.png" height="150px"  width="1100px">-->
+    <!--</div>-->
+    </div>
+
+
+<script type="text/javascript">
+    var orgarray=[];
+       function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                var errorMsg = document.getElementById("errorMsg");
+                errorMsg.style.display = "block";
+                document.getElementById("errorMsg").innerHTML = "  Please enter only Numbers.  ";
+                return false;
+            }
+           
+            return true;
+        }
+
+        function ValidateNo() {
+//            document.getElementById("drop1").innerHTML = "";
+            var phoneNo = document.getElementById('txtPhoneNo');
+            var errorMsg = document.getElementById("errorMsg");
+            var successMsg = document.getElementById("successMsg");
+
+            if (phoneNo.value == "" || phoneNo.value == null) {
+                errorMsg.style.display = "block";
+                successMsg.style.display = "none";
+                document.getElementById("errorMsg").innerHTML = "  Please enter your Mobile No.  ";
+                return false;
+            }
+            if (phoneNo.value.length < 12 || phoneNo.value.length > 12) {
+                errorMsg.style.display = "block";
+                successMsg.style.display = "none";
+                document.getElementById("errorMsg").innerHTML = "  Mobile No. is not valid, Please Enter 10 Digit Mobile No with Country Code 91 ";
+                return false;
+            }
+          //  alert(phoneNo.value);
+            successMsg.style.display = "block";
+            document.getElementById("successMsg").innerHTML = " Success ";
+            errorMsg.style.display = "none";
+
+            $.getJSON("http://ntdindia.org/lf/api/organisationUnits.json?fields=id,name,level,parent[id,name]&filter=phoneNumber:eq:"+phoneNo.value, function (data) {
+                $.each(data.organisationUnits, function (index, item) {
+
+
+                    var jsonStr = JSON.stringify(item);
+                   // document.body.innerHTML = jsonStr;
+                    document.getElementById("json").innerHTML = JSON.stringify(jsonStr );
+//                    if (item.phoneNumber == phoneNo.value) {
+//
+//                        $.each(item.ancestors, function (index1, item1) {
+//
+//                            orgarray.push(item1.name);
+//                            $('#drop3').append(
+//                                    $('<option></option>').val(item1.id).html(item1.name).text(item.name)
+//                            );
+//                        });
+//
+//                        console.log(orgarray);
+//                    }
+
+                });
+
+            });
+            return true;
+        }
+//       var myIndex = 0;
+//       carousel();
+//
+//       function carousel() {
+//           var i;
+//           var x = document.getElementsByClassName("mySlides");
+//           for (i = 0; i < x.length; i++) {
+//               x[i].style.display = "none";
+//           }
+//           myIndex++;
+//           if (myIndex > x.length) {myIndex = 1}
+//           x[myIndex-1].style.display = "block";
+//           setTimeout(carousel, 2000); // Change image every 2 seconds
+//       }
+
+    </script>
+
+</body>
+</html>
