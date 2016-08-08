@@ -136,7 +136,6 @@
         }
 
         function ValidateNo() {
-//            document.getElementById("drop1").innerHTML = "";
             var phoneNo = document.getElementById('txtPhoneNo');
             var errorMsg = document.getElementById("errorMsg");
             var successMsg = document.getElementById("successMsg");
@@ -150,21 +149,36 @@
             if (phoneNo.value.length < 12 || phoneNo.value.length > 12) {
                 errorMsg.style.display = "block";
                 successMsg.style.display = "none";
-                document.getElementById("errorMsg").innerHTML = "  Mobile No. is not valid, Please Enter 10 Digit Mobile No with Country Code 91 ";
+                document.getElementById("errorMsg").innerHTML = " Mobile No. is not valid, Please Enter 10 Digit Mobile No with Country Code 91 ";
                 return false;
             }
           //  alert(phoneNo.value);
-            successMsg.style.display = "block";
+          //  successMsg.style.display = "block";
             document.getElementById("successMsg").innerHTML = " Success ";
             errorMsg.style.display = "none";
 
             $.getJSON("http://ntdindia.org/lf/api/organisationUnits.json?fields=id,name,level,parent[id,name]&filter=phoneNumber:eq:"+phoneNo.value, function (data) {
-                $.each(data.organisationUnits, function (index, item) {
+
+                if(data.organisationUnits.length==0)
+                {
+                    alert("Oh oh...  "+ phoneNo.value+" not registered with any facility");
+                    return false;
+
+                }
+                else {
+                    $.each(data.organisationUnits, function (index, item) {
+                        successMsg.style.display = "block";
+                        console.log(data.organisationUnits.length);
+                        console.log(item.length);
 
 
-                    var jsonStr = JSON.stringify(item);
-                   // document.body.innerHTML = jsonStr;
-                    document.getElementById("json").innerHTML = JSON.stringify(jsonStr );
+                        var jsonStr = JSON.stringify(item);
+                        // document.body.innerHTML = jsonStr;
+                        document.getElementById("json").innerHTML = JSON.stringify(jsonStr);
+
+                        return true;
+
+
 //                    if (item.phoneNumber == phoneNo.value) {
 //
 //                        $.each(item.ancestors, function (index1, item1) {
@@ -178,10 +192,11 @@
 //                        console.log(orgarray);
 //                    }
 
-                });
+                    });
+                }
 
             });
-            return true;
+
         }
 //       var myIndex = 0;
 //       carousel();
