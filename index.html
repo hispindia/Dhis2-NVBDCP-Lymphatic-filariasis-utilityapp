@@ -1,81 +1,81 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<!-- Latest compiled and minified CSS -->
+    <!-- Latest compiled and minified CSS -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
+    <!-- Latest compiled and minified JavaScript -->
 
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-  <!--Bootstrap Select Library-->
-	<!-- Latest compiled and minified CSS -->
-
-
-<!-- Latest compiled and minified JavaScript -->
+    <!--Bootstrap Select Library-->
+    <!-- Latest compiled and minified CSS -->
 
 
-<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+    <!-- Latest compiled and minified JavaScript -->
 
-  
-  <!--W3schools-->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 
-<link rel="stylesheet" type="text/css" href="styles.css">
-<style type="text/css">
-    .error
-    {
-        color: white;
-        background-color: rgb(247, 23, 23);
-        margin-left: 12px;
-        border-radius: 3px;
-    }
-    .dsNone
-    {
-        display:none;
-    }
-    .success
-    {
-        color: white;
-        background-color: green;
-        margin-left: 12px;
-        border-radius: 3px;
-    }
-    .algContent
-    {
-        width:900px; margin:0 auto;
-    }
-    .mySlides {display:none;}
+    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+
+
+    <!--W3schools-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style type="text/css">
+        .error
+        {
+            color: white;
+            background-color: rgb(247, 23, 23);
+            margin-left: 12px;
+            border-radius: 3px;
+        }
+        .dsNone
+        {
+            display:none;
+        }
+        .success
+        {
+            color: white;
+            background-color: green;
+            margin-left: 12px;
+            border-radius: 3px;
+        }
+        .algContent
+        {
+            width:900px; margin:0 auto;
+        }
+        .mySlides {display:none;}
 
     </style>
 </head>
 <body>
 
-  <div>
-  <img src="./img/logo.jpg" height="200px"  width="200px" align="left">
-  <img src="./img/goi.jpg" height="150px"  width="150px" align="right">
+<div>
+    <img src="./img/logo.jpg" height="200px"  width="200px" align="left">
+    <img src="./img/goi.jpg" height="150px"  width="150px" align="right">
 
 
 
 </div>
 
-  <!-- Modal -->
+<!-- Modal -->
 
 
-	<div class="container">
-  <h1 align="center"><strong>Welcome</strong> to the</h1>
-  <p><h3 id="h3" align="center">National Vector Borne Disease Control Programme(NVDCP)</h3></p>
-  <div class="row">
-    <div class="col-sm-12" style="background-color:white;" align="center">Directorate of National Vector Borne Disease Control Programme (NVBDCP) is the central nodal agency for the prevention and control of vector borne diseases i.e. Malaria, Dengue, Lymphatic Filariasis, Kala-azar, Japanese Encephalitis and Chikungunya in India. It is one of the Technical Departments of Directorate General of Health Services, Government of India. </div>
-  </div>
-  
-  <div>
-  <p id="p1" align="center">Type the Mobile No: Below to find corresponding org Unit</p>
-  </div>
-  
+<div class="container">
+    <h1 align="center"><strong>Welcome</strong> to the</h1>
+    <p><h3 id="h3" align="center">National Vector Borne Disease Control Programme(NVDCP)</h3></p>
+    <div class="row">
+        <div class="col-sm-12" style="background-color:white;" align="center">Directorate of National Vector Borne Disease Control Programme (NVBDCP) is the central nodal agency for the prevention and control of vector borne diseases i.e. Malaria, Dengue, Lymphatic Filariasis, Kala-azar, Japanese Encephalitis and Chikungunya in India. It is one of the Technical Departments of Directorate General of Health Services, Government of India. </div>
+    </div>
+
+    <div>
+        <p id="p1" align="center">Type the Mobile No: Below to find corresponding org Unit</p>
+    </div>
+
 
 </div>
 <form id="form1" runat="server">
@@ -93,9 +93,9 @@
         <div style="float:right;">
 
 
-            </div>
+        </div>
         <div style="float:left;">
-        <span style="float:left;" id="errorMsg" class="dsNone error"></span><span style="float:left;" id="successMsg" class="dsNone success">
+            <span style="float:left;" id="errorMsg" class="dsNone error"></span><span style="float:left;" id="successMsg" class="dsNone success">
         </span>
         </div>
         <br ><br >
@@ -103,84 +103,153 @@
     </div>
     <div id="json"></div>
 
-    </form>
-		
+</form>
+<div align="center">
+<form action="action_page.php" style="align-content: center">
+    <b>State:</b><br>
+    <input type="text" name="firstname" id="state">
+    <br>
+    <b>District:</b><br>
+    <input type="text" name="lastname" id="district">
+    <br>
+    <b>Block:</b><br>
+    <input type="text" name="lastname" id="block">
+    <br>
+    <b>Phc:</b><br>
+    <input type="text" name="lastname" id="phc">
+    <br>
+    <b>Sc:</b><br>
+    <input type="text" name="lastname" id="sc">
+    <br>
+    <b>Village:</b><br>
+    <input type="text" name="lastname" id="village">
+    <br>
+    <b>Asha:</b><br>
+    <input type="text" name="lastname" id="asha">
+    <br>
+
+    <br>
+</form>
+</div>
 <!-- Footer -->
 
 <div id="footer">
 
-    </div>
+</div>
 
 
 <script type="text/javascript">
     var orgarray=[];
-       function isNumber(evt) {
-            evt = (evt) ? evt : window.event;
-            var charCode = (evt.which) ? evt.which : evt.keyCode;
+    function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
 
-            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-                var errorMsg = document.getElementById("errorMsg");
-                errorMsg.style.display = "block";
-                document.getElementById("errorMsg").innerHTML = "  Please enter only Numbers.  ";
-                return false;
-            }
-           
-            return true;
-        }
-
-        function ValidateNo() {
-            var phoneNo = document.getElementById('txtPhoneNo');
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
             var errorMsg = document.getElementById("errorMsg");
-            var successMsg = document.getElementById("successMsg");
-
-            if (phoneNo.value == "" || phoneNo.value == null) {
-                errorMsg.style.display = "block";
-                successMsg.style.display = "none";
-                document.getElementById("errorMsg").innerHTML = "  Please enter your Mobile No.  ";
-                return false;
-            }
-            if (phoneNo.value.length < 12 || phoneNo.value.length > 12) {
-                errorMsg.style.display = "block";
-                successMsg.style.display = "none";
-                document.getElementById("errorMsg").innerHTML = " Mobile No. is not valid, Please Enter 10 Digit Mobile No with Country Code 91 ";
-                return false;
-            }
-
-            document.getElementById("successMsg").innerHTML = " Success ";
-            errorMsg.style.display = "none";
-
-            $.getJSON("http://ntdindia.org/lf/api/organisationUnits.json?fields=id,name,level,parent[id,name,level,parent[id,name,level,parent[id,name,level,parent[id,name,level,parent[id,name,level,parent[id,name,level,parent[id,name,level,parent[id,name,level]]]]]]]]&filter=phoneNumber:eq:"+phoneNo.value, function (data) {
-
-                if(data.organisationUnits.length==0)
-                {
-                    alert("Oh oh...  "+ phoneNo.value+" not registered with any facility");
-                    return false;
-
-                }
-                else {
-                    $.each(data.organisationUnits, function (index, item) {
-                        successMsg.style.display = "block";
-                        console.log(data.organisationUnits.length);
-                        console.log(item.length);
-
-
-                        var jsonStr = JSON.stringify(item);
-
-                        document.getElementById("json").innerHTML = JSON.stringify(jsonStr);
-
-                        return true;
-
-
-
-                    });
-                }
-
-            });
-
+            errorMsg.style.display = "block";
+            document.getElementById("errorMsg").innerHTML = "  Please enter only Numbers.  ";
+            return false;
         }
 
+        return true;
+    }
 
-    </script>
+    function ValidateNo() {
+        var phoneNo = document.getElementById('txtPhoneNo');
+        var errorMsg = document.getElementById("errorMsg");
+        var successMsg = document.getElementById("successMsg");
+
+        if (phoneNo.value == "" || phoneNo.value == null) {
+            errorMsg.style.display = "block";
+            successMsg.style.display = "none";
+            document.getElementById("errorMsg").innerHTML = "  Please enter your Mobile No.  ";
+            return false;
+        }
+        if (phoneNo.value.length < 12 || phoneNo.value.length > 12) {
+            errorMsg.style.display = "block";
+            successMsg.style.display = "none";
+            document.getElementById("errorMsg").innerHTML = " Mobile No. is not valid, Please Enter 10 Digit Mobile No with Country Code 91 ";
+            return false;
+        }
+
+        document.getElementById("successMsg").innerHTML = " Success ";
+        errorMsg.style.display = "none";
+
+        $.getJSON("http://ntdindia.org/lf/api/organisationUnits.json?fields=id,name,level,parent[id,name,level,parent[id,name,level,parent[id,name,level,parent[id,name,level,parent[id,name,level,parent[id,name,level,parent[id,name,level,parent[id,name,level]]]]]]]]&filter=phoneNumber:eq:"+phoneNo.value, function (data) {
+
+            if(data.organisationUnits.length==0)
+            {
+                alert("Oh oh...  "+ phoneNo.value+" not registered with any facility");
+                return false;
+
+            }
+            else {
+
+                $.each(data.organisationUnits, function (index, item) {
+                    successMsg.style.display = "block";
+//                        console.log(data.organisationUnits.length);
+//                        console.log(item.length);
+
+                    if(item.parent.parent.parent.parent.parent.parent.parent.level=="1")
+                    {
+                        var country=item.parent.parent.parent.parent.parent.parent.parent.name;
+
+                    }
+                     if(item.parent.parent.parent.parent.parent.parent.level=="2")
+                    {
+                        var state=item.parent.parent.parent.parent.parent.parent.name;
+                        document.getElementById("state").value=state;
+                    }
+                     if(item.parent.parent.parent.parent.parent.level=="3")
+                    {
+                        var district=item.parent.parent.parent.parent.parent.name;
+                        document.getElementById("district").value=district;
+                    }  if(item.parent.parent.parent.parent.level=="4")
+                    {
+                        var block=item.parent.parent.parent.parent.name;
+                        document.getElementById("block").value=block;
+                    }
+                     if(item.parent.parent.parent.level=="5")
+                    {
+                        var phc=item.parent.parent.parent.name;
+                        document.getElementById("phc").value=phc;
+                    }
+
+                    if(item.parent.parent.level=="6")
+                    {
+                        var sc=item.parent.parent.name;
+                        document.getElementById("sc").value=sc;
+                    }  if(item.parent.level=="7")
+                    {
+                        var village=item.parent.name;
+                        document.getElementById("village").value=village;
+                    }
+                     if(item.level=="8")
+                    {
+                        var asha=item.name;
+                        document.getElementById("asha").value=asha;
+                    }
+
+                    var jsonStr = JSON.stringify(item);
+
+                    document.getElementById("json").innerHTML = JSON.stringify(jsonStr);
+
+
+
+                    return true;
+
+
+
+                });
+            }
+
+        });
+
+    }
+
+
+</script>
 
 </body>
+
 </html>
