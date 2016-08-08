@@ -91,9 +91,7 @@
 
         </div>
         <div style="float:right;">
-        <!--<select id="drop3"  >-->
-            <!--<option value="" disabled selected hidden>Assigned Org Units</option>-->
-        <!--</select>-->
+
 
             </div>
         <div style="float:left;">
@@ -110,12 +108,7 @@
 <!-- Footer -->
 
 <div id="footer">
-    <!--<div class="w3-content w3-section" >-->
-        <!--<img class="mySlides" src="img/image1.png" height="150px"  width="1100px">-->
-        <!--<img class="mySlides" src="img/image2.png" height="150px"  width="1100px">-->
-        <!--<img class="mySlides" src="img/image3.jpg" height="150px"  width="1100px">-->
-        <!--<img class="mySlides" src="img/image4.png" height="150px"  width="1100px">-->
-    <!--</div>-->
+
     </div>
 
 
@@ -152,12 +145,11 @@
                 document.getElementById("errorMsg").innerHTML = " Mobile No. is not valid, Please Enter 10 Digit Mobile No with Country Code 91 ";
                 return false;
             }
-          //  alert(phoneNo.value);
-          //  successMsg.style.display = "block";
+
             document.getElementById("successMsg").innerHTML = " Success ";
             errorMsg.style.display = "none";
 
-            $.getJSON("http://ntdindia.org/lf/api/organisationUnits.json?fields=id,name,level,parent[id,name]&filter=phoneNumber:eq:"+phoneNo.value, function (data) {
+            $.getJSON("http://ntdindia.org/lf/api/organisationUnits.json?fields=id,name,level,parent[id,name,level,parent[id,name,level,parent[id,name,level,parent[id,name,level,parent[id,name,level,parent[id,name,level,parent[id,name,level,parent[id,name,level]]]]]]]]&filter=phoneNumber:eq:"+phoneNo.value, function (data) {
 
                 if(data.organisationUnits.length==0)
                 {
@@ -173,24 +165,12 @@
 
 
                         var jsonStr = JSON.stringify(item);
-                        // document.body.innerHTML = jsonStr;
+
                         document.getElementById("json").innerHTML = JSON.stringify(jsonStr);
 
                         return true;
 
 
-//                    if (item.phoneNumber == phoneNo.value) {
-//
-//                        $.each(item.ancestors, function (index1, item1) {
-//
-//                            orgarray.push(item1.name);
-//                            $('#drop3').append(
-//                                    $('<option></option>').val(item1.id).html(item1.name).text(item.name)
-//                            );
-//                        });
-//
-//                        console.log(orgarray);
-//                    }
 
                     });
                 }
@@ -198,20 +178,7 @@
             });
 
         }
-//       var myIndex = 0;
-//       carousel();
-//
-//       function carousel() {
-//           var i;
-//           var x = document.getElementsByClassName("mySlides");
-//           for (i = 0; i < x.length; i++) {
-//               x[i].style.display = "none";
-//           }
-//           myIndex++;
-//           if (myIndex > x.length) {myIndex = 1}
-//           x[myIndex-1].style.display = "block";
-//           setTimeout(carousel, 2000); // Change image every 2 seconds
-//       }
+
 
     </script>
 
