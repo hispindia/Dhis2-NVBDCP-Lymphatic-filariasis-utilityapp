@@ -104,8 +104,18 @@
     <div id="json"></div>
 
 </form>
+
 <div align="center">
+
 <form action="action_page.php" style="align-content: center">
+    <b>Name:</b><br>
+    <input type="text" name="firstname" id="name">
+    <br>
+
+    <b>Registered Facility Level:</b><br>
+    <input type="text" name="firstname" id="level">
+    <br>
+
     <b>State:</b><br>
     <input type="text" name="firstname" id="state">
     <br>
@@ -124,7 +134,7 @@
     <b>Village:</b><br>
     <input type="text" name="lastname" id="village">
     <br>
-    <b>Asha:</b><br>
+    <b>Asha/ANM:</b><br>
     <input type="text" name="lastname" id="asha">
     <br>
 
@@ -189,6 +199,11 @@
                     successMsg.style.display = "block";
 //                        console.log(data.organisationUnits.length);
 //                        console.log(item.length);
+
+                    var name=item.name;
+                    document.getElementById("name").value=name;
+                    var level=item.level;
+                    document.getElementById("level").value=level;
 
                     if(item.parent.parent.parent.parent.parent.parent.parent.level=="1")
                     {
